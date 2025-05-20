@@ -9,8 +9,8 @@ public class GamePanel extends JPanel {
     private final int NUMROW = 10;
     private final int PIECESIZE = 30;
     private final int BOARDSIZE = PIECESIZE * NUMCOL;
-    private JLabel[][] shipSlots = new JLabel[NUMROW][NUMCOL];;
-    private JLabel[][] shotSlots = new JLabel[NUMROW][NUMCOL];;
+    private final JLabel[][] shipSlots = new JLabel[NUMROW][NUMCOL];
+    private final JLabel[][] shotSlots = new JLabel[NUMROW][NUMCOL];
 
 
     public GamePanel(BattleshipGUI gui) {
@@ -81,6 +81,7 @@ public class GamePanel extends JPanel {
             for (int j = 0; j < NUMCOL && result == -1; j++) {
                 if (shotSlots[i][j] == label) {
                     result = i;
+                    break;
                 }
             }
         }

@@ -5,8 +5,8 @@ import javax.swing.*;
 
 public class BattleshipGUI implements ActionListener, MouseListener {
 
-    private CardLayout cards;
-    private Container c;
+    private final CardLayout cards;
+    private final Container c;
     private boolean easy = true;
     private final int NUMCOL = 10;
     private final int NUMROW = 10;

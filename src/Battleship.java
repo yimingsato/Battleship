@@ -107,11 +107,7 @@ public class Battleship {
                               }
                            }
                            // read in the difficulty of the saved game
-                           if ((input = reader.readLine()).equals("easy")) {
-                              easyDifficulty = true;
-                           } else {
-                              easyDifficulty = false;
-                           }
+                            easyDifficulty = (input = reader.readLine()).equals("easy");
                            reader.close();
                            boardLoaded = true;
                            userDeciding = false;
@@ -382,10 +378,7 @@ public class Battleship {
          return false;
       }
       // check if the attack on the board was already attacked
-      if (board[row - 1][col - 1] == HIT || board[row - 1][col - 1] == MISS) {
-         return false;
-      }
-      return true;
+       return board[row - 1][col - 1] != HIT && board[row - 1][col - 1] != MISS;
 
    }
 
@@ -467,9 +460,10 @@ public class Battleship {
       boolean gameOver = true;
       for (int i = 0; i < shipsLeft.length; i++) {
          // if there are still ships left, set gameOver to false
-         if (shipsLeft[i] > 0) {
-            gameOver = false;
-         }
+          if (shipsLeft[i] > 0) {
+              gameOver = false;
+              break;
+          }
       }
       return gameOver;
    }
